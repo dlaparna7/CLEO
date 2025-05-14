@@ -362,9 +362,11 @@ std::string CartesianDynamics::set_winds_from_yac(const unsigned int nspacedims)
     case 3:  // 3-D model
       get_vvel = get_vvel_from_yac();
       infoend = ", u";
+      [[fallthrough]];
     case 2:  // 3-D or 2-D model
       get_uvel = get_uvel_from_yac();
       infoend = ", v" + infoend;
+      [[fallthrough]];
     case 1:  // 3-D, 2-D or 1-D model
       get_wvel = get_wvel_from_yac();
       infoend = "w" + infoend;
