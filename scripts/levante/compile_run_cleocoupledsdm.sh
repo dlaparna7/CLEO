@@ -23,14 +23,15 @@ spack unload --all
 ### ----- your build configuration and executables ----- ###
 ### ---------------------------------------------------- ###
 buildtype=$1                                                    # "serial", "threads", "openmp" or "cuda"
-compilername=${2:-intel}                                        # "intel" or "gcc"
+compilername=${2:-gcc}                                        # "intel" or "gcc"
 path2CLEO=${3:-${HOME}/CLEO}                                    # must be absolute path
 path2build=${4:-${path2CLEO}/build}                             # should be absolute path
-enableyac=${5:-false}                                           # == "true" or otherwise false
-executables=${6:-"cleocoupledsdm"}                              # executable(s) to compile or "NONE"
-executable2run=${7:-${path2build}/roughpaper/src/${executables}} # path to executable to run
-configfile=${8:-${path2CLEO}/roughpaper/src/config/config.yaml} # configuration to run
+enableyac=${5:-true}                                           # == "true" or otherwise false
+executables=${6:-"bubble3d"}                              # executable(s) to compile or "NONE"
+executable2run=${7:-${path2build}/examples/bubble3d/src/${executables}} # path to executable to run
+configfile=${8:-${path2CLEO}/examples/bubble3d/src/config/bubble3d_config.yaml} # configuration to run
 stacksize_limit=${9:-204800}                                    # ulimit -s [stacksize_limit] (kB)
+yacyaxtroot=${10:-/work/bm1183/m300950/yacyaxt}   # yac and yaxt in yacyaxtroot/yac and yacyaxtroot/yaxt
 ### ---------------------------------------------------- ###
 
 ### -------------------- check inputs ------------------ ###
@@ -64,6 +65,10 @@ export CLEO_PATH2CLEO=${path2CLEO}
 export CLEO_PATH2BUILD=${path2build}
 export CLEO_ENABLEYAC=${enableyac}
 ### ---------------------------------------------------- ###
+if [ ${CLEO_ENABLEYAC} == "true" ]
+then
+  export CLEO_YACYAXTROOT=${yacyaxtroot}
+fi
 
 ### --------------- print compiling inputs ------------- ###
 echo "### --------------- User Inputs -------------- ###"
@@ -90,8 +95,8 @@ echo "### ------------------------------------------- ###"
 ### ---------------------------------------------------- ###
 
 ### ------------------- run executable ----------------- ###
-cd ${CLEO_PATH2BUILD} && pwd
-runcmd="${CLEO_PATH2CLEO}/scripts/levante/bash/run_cleo.sh ${executable2run} ${configfile} ${stacksize_limit}"
-echo ${runcmd}
-eval ${runcmd}
+#cd ${CLEO_PATH2BUILD} && pwd
+#runcmd="${CLEO_PATH2CLEO}/scripts/levante/bash/run_cleo.sh ${executable2run} ${configfile} ${stacksize_limit}"
+#echo ${runcmd}
+#eval ${runcmd}
 ### -------------------------------------------------- ###
