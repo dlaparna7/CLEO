@@ -41,7 +41,7 @@ class init_communicator {
   int rank;
   int size;
   MPI_Comm comm;
-  // Constructor
+  // constructor
   // init_communicator(const std::filesystem::path config_filename)
   explicit init_communicator(const Config &config);
 };
