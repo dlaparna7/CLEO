@@ -39,6 +39,7 @@
 #include "gridboxes/supersindomain.hpp"
 #include "mpi.h"
 #include "superdrops/superdrop.hpp"
+#include "../../initialise/communicator.hpp"
 
 /*
 function to move super-droplets between MPI processes, e.g. for superdroplets
@@ -68,8 +69,10 @@ template <GridboxMaps GbxMaps>
 viewd_supers sendrecv_supers(const GbxMaps &gbxmaps, const viewd_gbx d_gbxs,
                              viewd_supers totsupers) {
   int comm_size, my_rank;
-  MPI_Comm_size(MPI_COMM_WORLD, &comm_size);
-  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+  MPI_Comm comm;
+  comm = init_communicator::get_communicator();
+  MPI_Comm_size(comm, &comm_size);
+  MPI_Comm_rank(comm, &my_rank);
 
   std::vector<MPI_Request> exchange_requests(comm_size * 6, MPI_REQUEST_NULL);
   std::vector<MPI_Status> exchange_statuses(comm_size * 6);

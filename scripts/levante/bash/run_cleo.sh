@@ -25,7 +25,7 @@ stacksize_limit=$3 # kB
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 bashsrc=${SCRIPT_DIR}/src
-
+set -x
 ### -------------------- check inputs ------------------ ###
 source ${bashsrc}/check_inputs.sh
 check_args_not_empty "${executable2run}" "${configfile}" "${CLEO_ENABLEYAC}"

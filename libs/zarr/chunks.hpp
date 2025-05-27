@@ -31,6 +31,7 @@
 #include <mpi.h>
 
 #include "zarr/buffer.hpp"
+#include "../initialise/communicator.hpp"
 
 /**
  * @brief Calculates the product of all elements in a vector of size_t numbers.
@@ -72,6 +73,7 @@ class Chunks {
  private:
   std::vector<size_t> chunkshape; /**< Shape of chunks along each dimension (constant) */
   std::vector<size_t> reducedarray_nchunks;
+  MPI_Comm comm;
   /**< Number chunks of array along all but outermost dimension of array (constant) */
 
   /**
@@ -122,7 +124,8 @@ class Chunks {
 
     // Since only process 0 writes the data, only it should check the sizes
     int my_rank;
-    MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+    comm = init_communicator::get_communicator();
+    MPI_Comm_rank(comm, &my_rank);
     if (my_rank == 0)
       assert((reduced_arrayshape.size() == chunkshape.size() - 1) &&
              "number of dimensions of reduced array must be "

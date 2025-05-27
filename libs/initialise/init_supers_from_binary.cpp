@@ -22,7 +22,7 @@
  */
 
 #include "initialise/init_supers_from_binary.hpp"
-
+#include "initialise/communicator.hpp"
 #include <mpi.h>
 
 template <typename T>
@@ -66,7 +66,9 @@ InitSupersData InitSupersFromBinary::add_uninitialised_superdrops_data(
 
 void InitSupersFromBinary::trim_nonlocal_superdrops(InitSupersData &initdata) const {
   int my_rank;
-  MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+  // MPI_Comm comm;
+  // comm = init_communicator::get_communicator();
+  MPI_Comm_rank(comm, &my_rank);
 
   if (gbxmaps.get_total_global_ngridboxes() == gbxmaps.get_local_ngridboxes_hostcopy()) return;
 

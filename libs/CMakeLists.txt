@@ -4,8 +4,8 @@ if(NOT DEFINED CMAKE_MINIMUM_REQUIRED_VERSION)
 endif()
 
 # essential CLEO libaries #
-add_subdirectory(gridboxes)
 add_subdirectory(initialise)
+add_subdirectory(gridboxes)
 add_subdirectory(runcleo)
 add_subdirectory(superdrops)
 add_subdirectory(zarr)

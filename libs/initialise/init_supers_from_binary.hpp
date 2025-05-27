@@ -37,6 +37,7 @@
 #include "initialise/optional_config_params.hpp"
 #include "initialise/readbinary.hpp"
 #include "superdrops/superdrop.hpp"
+#include "initialise/communicator.hpp"
 
 /* struct containing functions which return data for the initial conditions needed to create
 superdroplets e.g. via the CreateSupers struct */
@@ -47,6 +48,7 @@ struct InitSupersFromBinary {
   std::filesystem::path initsupers_filename; /**< filename for super-droplets' initial conditons */
   unsigned int nspacedims; /**< number of spatial dimensions to model (0-D, 1-D, 2-D of 3-D) */
   const CartesianMaps &gbxmaps;
+  MPI_Comm comm;
 
   /* returns InitSupersData created by reading some data from a binary file and
   filling the rest with un-initialised super-droplets */
@@ -78,6 +80,7 @@ struct InitSupersFromBinary {
       const std::string err("cannot initialise more than the total number of super-droplets, ie. " +
                             std::to_string(maxnsupers) + " < " + std::to_string(initnsupers));
       throw std::invalid_argument(err);
+      comm = init_communicator::get_communicator();
     }
   }
 

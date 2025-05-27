@@ -19,7 +19,9 @@
  * Header file for members of Config struct which determine CLEO's required configuration
  * parameters read from a config file.
  */
-#include <yaml-cpp/yaml.h>
+#ifndef LIBS_INITIALISE_COMMUNICATOR_HPP_
+#define LIBS_INITIALISE_COMMUNICATOR_HPP_
+
 #include <mpi.h>
 #include <filesystem>
 #include <iostream>
@@ -28,22 +30,16 @@
 #include <cmath>
 
 #include "config.hpp"
-#include "optional_config_params.hpp"
 
-#ifndef LIBS_INITIALISE_COMMUNICATOR_HPP_
-#define LIBS_INITIALISE_COMMUNICATOR_HPP_
+
 
 class init_communicator {
- private:
-  bool yac_present;
-  // const Config &config;
  public:
-  int rank;
-  int size;
-  MPI_Comm comm;
-  // constructor
-  // init_communicator(const std::filesystem::path config_filename)
+  static int yac_comp_id;
+  static MPI_Comm comm;
+  bool yac_present;
   explicit init_communicator(const Config &config);
+  static MPI_Comm get_communicator();
 };
 
 #endif  // LIBS_INITIALISE_COMMUNICATOR_HPP_

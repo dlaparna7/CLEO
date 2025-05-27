@@ -24,12 +24,13 @@
 #include <cstddef>
 #include <map>
 #include <vector>
-
+#include <mpi.h>
 #include "../cleoconstants.hpp"
 
 class CartesianDecomposition {
  private:
   int my_rank;
+  MPI_Comm comm;
   // Number of dimensions of the global domain
   std::vector<size_t> ndims;
   // Global origins of all partitions

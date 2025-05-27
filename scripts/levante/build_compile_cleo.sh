@@ -28,7 +28,7 @@ path2CLEO=${3:-${HOME}/CLEO}                   # must be absolute path
 path2build=${4:-${path2CLEO}/build}            # should be absolute path
 build_flags=${5:-"-DCLEO_COUPLED_DYNAMICS="yac""} # CLEO_BUILD_FLAGS
 executables=${6:-"bubble3d"}             # list of executables to compile or "NONE"
-enabledebug=${7:-false}                        # == "true" or otherwise false
+enabledebug=${7:-true}                        # == "true" or otherwise false
 enableyac=${8:-true}                          # == "true" or otherwise false
 yacyaxtroot=${9:-/work/bm1183/m300950/yacyaxt} # yac and yaxt in yacyaxtroot/yac and yacyaxtroot/yaxt
 make_clean=${10:-true}                         # == "true" or otherwise false

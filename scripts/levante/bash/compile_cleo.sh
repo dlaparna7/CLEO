@@ -76,9 +76,9 @@ fi
 
 if [ ${executables} == "NONE" ]
 then
-  cmd="make -j 128"
+  cmd="make -j 1"
 else
-  cmd="make -j 128 ${executables}"
+  cmd="make -j 1 ${executables}"
 fi
 echo ${cmd}
 eval ${cmd}

@@ -23,7 +23,7 @@
 #ifndef LIBS_INITIALISE_OPTIONAL_CONFIG_PARAMS_HPP_
 #define LIBS_INITIALISE_OPTIONAL_CONFIG_PARAMS_HPP_
 
-#include <yaml-cpp/yaml.h>
+#include "yaml-cpp/yaml.h"
 
 #include <Kokkos_Core.hpp>
 #include <cassert>

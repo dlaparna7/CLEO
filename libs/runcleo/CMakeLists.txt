@@ -26,7 +26,7 @@ target_include_directories(${LIBNAME} PRIVATE "${CLEO_SOURCE_DIR}/libs") # CLEO 
 # Link libraries to target library
 set(LINKLIBS gridboxes observers superdrops zarr)
 target_link_libraries(${LIBNAME} PUBLIC "${LINKLIBS}")
-target_link_libraries(${LIBNAME} PUBLIC Kokkos::kokkos)
+target_link_libraries(${LIBNAME} PUBLIC Kokkos::kokkos yaml-cpp::yaml-cpp)
 
 # set specific C++ compiler options for target (optional)
 #target_compile_options(${LIBNAME} PRIVATE)

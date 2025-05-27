@@ -13,7 +13,7 @@
 #SBATCH --output=./compile_run_cleo_out.%j.out
 #SBATCH --error=./compile_run_cleo_err.%j.out
 
-set -e
+set -x
 source /etc/profile
 module purge
 spack unload --all

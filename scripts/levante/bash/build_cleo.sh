@@ -81,6 +81,8 @@ echo "### ------------------------------------------- ###"
 cmake -DCMAKE_CXX_COMPILER=${CLEO_CXX_COMPILER} \
     -DCMAKE_C_COMPILER=${CLEO_CC_COMPILER} \
     -DCMAKE_CXX_FLAGS="${CLEO_CXX_FLAGS}" \
+    -DCMAKE_VERBOSE_MAKEFILE=ON \
+    -DCMAKE_INCLUDE_PATH=/home/k/k202203/CLEO/build/_deps/yaml-cpp-src/include/yaml-cpp \
     -S ${CLEO_PATH2CLEO} -B ${CLEO_PATH2BUILD} \
     ${CLEO_KOKKOS_BASIC_FLAGS} ${CLEO_KOKKOS_HOST_FLAGS} ${CLEO_KOKKOS_DEVICE_FLAGS} \
     ${CLEO_BUILD_FLAGS} ${CLEO_YAC_FLAGS}

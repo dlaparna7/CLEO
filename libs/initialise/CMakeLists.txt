@@ -7,11 +7,26 @@ endif()
 set(LIBNAME "initialise")
 message(STATUS "CLEO using ${LIBNAME} with LIBRARY_SOURCE_DIR: ${CMAKE_CURRENT_SOURCE_DIR}")
 
+enable_language(C)
+message(STATUS "CLEO ${LIBNAME} enabling C language")
+
 # explicitly set library executables path to /lib in top level of build tree
 set(LIB_BINARY_DIR ${CMAKE_BINARY_DIR}/lib)
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CLEO_YAC_MODULE_PATH})
+message(STATUS "CMAKE_MODULE_PATH: ${CMAKE_MODULE_PATH}")
+message(STATUS "Using YAC pre-installed in: ${CLEO_YAC_ROOT}")
+message(STATUS "Using YAXT pre-installed in: ${CLEO_YAXT_ROOT}")
+set(YAC_ROOT ${CLEO_YAC_ROOT})
+set(YAXT_ROOT ${CLEO_YAXT_ROOT})
+# set(YAML_LIB "/home/k/k202203/CLEO/build/_deps/yaml-cpp-src/include/")
+
+find_package(MPI REQUIRED)
+find_package(YAC REQUIRED)
+
 # Add executables and create library target
 set(SOURCES
+"communicator.cpp"
 "copyfiles2txt.cpp"
 "gbx_bounds_from_binary.cpp"
 "init_all_supers_from_binary.cpp"
@@ -20,18 +35,19 @@ set(SOURCES
 "readbinary.cpp"
 "required_config_params.cpp"
 "timesteps.cpp"
-"communicator.cpp"
 )
 # must use STATIC (not(!) SHARED) lib for linking to executable if build is CUDA enabled with Kokkos
 add_library("${LIBNAME}" STATIC ${SOURCES})
 
 # Add directories for target library
 #target_include_directories(${LIBNAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}")
-target_include_directories(${LIBNAME} PRIVATE "${CLEO_SOURCE_DIR}/libs" ${MPI_INCLUDE_PATH}) # CLEO libs directory
+target_include_directories(${LIBNAME} PRIVATE ${YAC_C_INCLUDE_DIR}) # YAC source directory
+target_include_directories(${LIBNAME} PRIVATE "${CLEO_SOURCE_DIR}/libs" ${MPI_INCLUDE_PATH}) # CLEO libs directory ??
+# target_include_directories(${LIBNAME} PRIVATE ${YAML_LIB})
 
 # Link libraries to target library
-target_link_libraries(${LIBNAME} PUBLIC Kokkos::kokkos yaml-cpp::yaml-cpp MPI::MPI_CXX)
-
+target_link_libraries(${LIBNAME} PRIVATE Kokkos::kokkos yaml-cpp::yaml-cpp MPI::MPI_CXX)
+target_link_libraries(${LIBNAME} PRIVATE YAC::YAC)
 # set specific C++ compiler options for target (optional)
 #target_compile_options(${LIBNAME} PRIVATE)
 
