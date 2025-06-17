@@ -235,6 +235,7 @@ bool CartesianDecomposition::create(std::vector<size_t> ndims, GbxBoundsFromBina
   this->ndims = ndims;
   int comm_size, decomposition_index;
   std::vector<std::vector<size_t>> factorizations;
+
   comm_size = init_communicator::get_comm_size();
   my_rank = init_communicator::get_comm_rank();
   set_gridbox_upperbounds(gfb);

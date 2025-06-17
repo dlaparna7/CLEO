@@ -51,7 +51,7 @@ class CartesianDecomposition {
   std::array<double, 3> partition_begin_coordinates;
   std::array<double, 3> partition_end_coordinates;
 
-  // Sizes of a gridbox
+  // Bounds of a gridbox
   std::vector<std::vector<double>> gridbox_upperbounds;
 
   // std::vector<double> gridbox_size_vertical; // z-dimension (coord3)

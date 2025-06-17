@@ -2,6 +2,76 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.44.0](https://github.com/yoctoyotta1024/CLEO/compare/3b38b2c1c6665568cb10eb08d48130a06796d2d6..v0.44.0) - 2025-06-12
+#### Bug Fixes
+- coupldyn_numpy is submodule of pycleo - ([a0c42bb](https://github.com/yoctoyotta1024/CLEO/commit/a0c42bb4f85597b6342132367d72e55455882bc8)) - clara.bayley
+#### Features
+- python class for thermodynamics of example - ([9dc56f3](https://github.com/yoctoyotta1024/CLEO/commit/9dc56f3ded58362a2fec8d22b30933332e1ca869)) - clara.bayley
+- new library for numpy arrays coupled dynamics - ([439289e](https://github.com/yoctoyotta1024/CLEO/commit/439289e2c1b727d26e2a534296b32a5ed8242384)) - clara.bayley
+#### Miscellaneous Chores
+- renaming config conflicting variables - ([42d4cff](https://github.com/yoctoyotta1024/CLEO/commit/42d4cff787356cf4b1706c18f2d8a2fe3a19b155)) - clara.bayley
+#### Performance Improvements
+- no inline in macro - ([cc7ae0d](https://github.com/yoctoyotta1024/CLEO/commit/cc7ae0d0d8d9a4f6d25403a33a66704c001a487b)) - clara.bayley
+#### Refactoring
+- use coupldyn_numpy submodule in python_bindings example - ([de975a9](https://github.com/yoctoyotta1024/CLEO/commit/de975a95d5224b9bf3c7a2d081cd0fa6aad0f48c)) - clara.bayley
+- use thermodynamics in python bindings example - ([91e12e5](https://github.com/yoctoyotta1024/CLEO/commit/91e12e599f94057e3314d5c0096f90840e9c3557)) - clara.bayley
+- parallelise numpy comms send/receive - ([bfeff8e](https://github.com/yoctoyotta1024/CLEO/commit/bfeff8ead50997d83862a805ba26c88b3bf7f1ca)) - clara.bayley
+- bindings for time to model timestep conversion - ([01ca4f2](https://github.com/yoctoyotta1024/CLEO/commit/01ca4f28ba70ce6aefe93b6daf14c75b955e97ff)) - clara.bayley
+- reduce number of gridboxes - ([038f858](https://github.com/yoctoyotta1024/CLEO/commit/038f858a1e502341873a3cb674aa050f9084377c)) - clara.bayley
+- delete unused thermofiles coupled dynamics - ([0751f80](https://github.com/yoctoyotta1024/CLEO/commit/0751f80a546d217b4f27028604939ecdcfacf940)) - clara.bayley
+- use cleo config struct in intialisation of cleo not python config - ([b7fdde4](https://github.com/yoctoyotta1024/CLEO/commit/b7fdde49ee44e2bddbb9dd93808111cceae8dd5b)) - clara.bayley
+- include more getters in config bindings - ([3b38b2c](https://github.com/yoctoyotta1024/CLEO/commit/3b38b2c1c6665568cb10eb08d48130a06796d2d6)) - clara.bayley
+
+- - -
+
+## [v0.43.0](https://github.com/yoctoyotta1024/CLEO/compare/0a032e280dcee5934cfa2430884569131fa27875..v0.43.0) - 2025-06-12
+#### Features
+- first bindings for gridboxes - ([6480b59](https://github.com/yoctoyotta1024/CLEO/commit/6480b591fe6dac629b2df42cf4dd00ef1d30a27e)) - clara.bayley
+- first bindings for superdroplets - ([085d86c](https://github.com/yoctoyotta1024/CLEO/commit/085d86c956a9d82142b3698c769ae252961a886a)) - clara.bayley
+- new python bindings for initialisation/configuration - ([90bd3fc](https://github.com/yoctoyotta1024/CLEO/commit/90bd3fcf17463d2ada5180f13fb2de92a6f24188)) - clara.bayley
+- first bindings for boundary conditions and movesupersindomain - ([21b595a](https://github.com/yoctoyotta1024/CLEO/commit/21b595ad739d398ab20a761e4f84344df7b183e5)) - clara.bayley
+- first bindings for cartesian transport - ([59ce95c](https://github.com/yoctoyotta1024/CLEO/commit/59ce95cb12df1a017d30dd86f99788b1a1c569e6)) - clara.bayley
+- create first bindings for motion and microphysics - ([9eb782a](https://github.com/yoctoyotta1024/CLEO/commit/9eb782a496c48c8e10d06f1b8c4c578708a2bb36)) - clara.bayley
+- create first binding for cartesian maps - ([be74b04](https://github.com/yoctoyotta1024/CLEO/commit/be74b04b42c3613c1121412d6a4041adfc16b9c6)) - clara.bayley
+- create first bindings for observers - ([57cdc4e](https://github.com/yoctoyotta1024/CLEO/commit/57cdc4ebb248d028ce41c63aae08869640e40fdc)) - clara.bayley
+- create first bindings for SDMMethods - ([0a032e2](https://github.com/yoctoyotta1024/CLEO/commit/0a032e280dcee5934cfa2430884569131fa27875)) - clara.bayley
+#### Miscellaneous Chores
+- renaming and formatting - ([b9a81c5](https://github.com/yoctoyotta1024/CLEO/commit/b9a81c5bb6d8520a617fe6b885050ccdd9aa9956)) - clara.bayley
+- add placeholder notes on rest of objects to create - ([0dfff04](https://github.com/yoctoyotta1024/CLEO/commit/0dfff0498f1a9ceaf39cd9d11dfd1953174674b4)) - clara.bayley
+#### Refactoring
+- create SDMMethods in python bindings example - ([85c2a42](https://github.com/yoctoyotta1024/CLEO/commit/85c2a42ecf6628cfe5eff64dcd014bf98a05826a)) - clara.bayley
+- add bindings to timestep functions called by timestep_cleo - ([223ab55](https://github.com/yoctoyotta1024/CLEO/commit/223ab554f3d865f15f99006ca84fb128b33e8707)) - clara.bayley
+- add sdm timestepping routines to sdmmethods bindings - ([2ed1589](https://github.com/yoctoyotta1024/CLEO/commit/2ed158993c5a7c102d51f8b90e6263fdd3f21bde)) - clara.bayley
+- add access to gbxmaps from SDMMethods - ([c3a4fd8](https://github.com/yoctoyotta1024/CLEO/commit/c3a4fd8db086e5cf173c98822af5114f0731d04a)) - clara.bayley
+- add function signature to cartesian maps - ([85375e5](https://github.com/yoctoyotta1024/CLEO/commit/85375e51d527ca2a325d9add554653c594d033c7)) - clara.bayley
+- kokkos init takes config - ([8792764](https://github.com/yoctoyotta1024/CLEO/commit/87927643ac889caac8577053755ae33053f5a9c4)) - clara.bayley
+- kokkos init and finalise via pycleo - ([03279f6](https://github.com/yoctoyotta1024/CLEO/commit/03279f657ffc90dfa3a1002f78104749dbba36b5)) - clara.bayley
+
+- - -
+
+## [v0.42.0](https://github.com/yoctoyotta1024/CLEO/compare/17ffe2acf119fde7ac55ed2f87132a0429c34a37..v0.42.0) - 2025-06-11
+#### Bug Fixes
+- add archive library destination to libs targets - ([0b07ff4](https://github.com/yoctoyotta1024/CLEO/commit/0b07ff4bbcb52007242f60d7b70905a3fc913b3a)) - clara.bayley
+#### Documentation
+- add pybind11 dependency description - ([34514d0](https://github.com/yoctoyotta1024/CLEO/commit/34514d0c154b8d9533447fec2f56af3eabf5acb0)) - clara.bayley
+#### Features
+- add new example for testing python bindings - ([bfce784](https://github.com/yoctoyotta1024/CLEO/commit/bfce78478f1819f0f95d822f4623b74dd62c2ebc)) - clara.bayley
+- new flag to not build python bindings - ([b8f3ea7](https://github.com/yoctoyotta1024/CLEO/commit/b8f3ea7f237339ad1388e4aa9dffc1bd43f25498)) - clara.bayley
+- new library for CLEO's python bindings - ([732c77c](https://github.com/yoctoyotta1024/CLEO/commit/732c77cd83e543bc3e28ef77176a6966a0c83511)) - clara.bayley
+#### Performance Improvements
+- split long lines over multiple - ([2142890](https://github.com/yoctoyotta1024/CLEO/commit/21428902ea59b72a83cef8d9e33f4cb601be2fe9)) - clara.bayley
+#### Refactoring
+- add option to specify python version for python bindings via cmake - ([4223ea0](https://github.com/yoctoyotta1024/CLEO/commit/4223ea075c8ad9cbd40e5820fd8276985b5547e5)) - clara.bayley
+- move next_couplstep function into sdmmethods - ([17ffe2a](https://github.com/yoctoyotta1024/CLEO/commit/17ffe2acf119fde7ac55ed2f87132a0429c34a37)) - clara.bayley
+
+- - -
+
+## [v0.41.2](https://github.com/yoctoyotta1024/CLEO/compare/33b8848188cdacccfb958aac4a40b00e594cc5f2..v0.41.2) - 2025-06-10
+#### Bug Fixes
+- fix order of gridbox sizes set in cartesian decompositon - ([33b8848](https://github.com/yoctoyotta1024/CLEO/commit/33b8848188cdacccfb958aac4a40b00e594cc5f2)) - clara.bayley
+
+- - -
+
 ## [v0.41.1](https://github.com/yoctoyotta1024/CLEO/compare/5afbfe2fba4c4d031642e7608d40021bf61a274d..v0.41.1) - 2025-06-04
 #### Bug Fixes
 - plotting of 2d motion - ([3cb3537](https://github.com/yoctoyotta1024/CLEO/commit/3cb353765acda16faeb60ae300546b6ef2470c5b)) - clara.bayley
